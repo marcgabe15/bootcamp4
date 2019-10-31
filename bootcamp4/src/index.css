@@ -11,6 +11,18 @@ body {
 main {
 	padding: 0 2rem;
 }
+.stuff {
+	padding-top: 5px;
+	padding-bottom: 5px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	cursor: pointer;
+}
+.stuff:hover {
+	transition: all .2s ease-in-out;
+	background-color: rgb(245, 245, 245);
+	
+}
 
 /* ##### Search ##### */
 header {
@@ -33,6 +45,9 @@ input[type='text'] {
 /* ##### NamesList ##### */
 tr {
 	padding: 0;
+	-webkit-box-shadow: 0px 0px 19px 5px rgba(161,161,161,0.77);
+-moz-box-shadow: 0px 0px 19px 5px rgba(161,161,161,0.77);
+box-shadow: 0px 0px 19px 5px rgba(161,161,161,0.77);
 }
 th {
 	position: left;
