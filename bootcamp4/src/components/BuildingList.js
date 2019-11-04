@@ -30,7 +30,7 @@ class BuildingList extends React.Component {
 			return directory.name.toLowerCase().indexOf(filtertext) >= 0
 		}).map(directory => {
 			return (
-				<Paper className="stuff" onClick={this.selectedUpdate.bind(this, directory.id)} key={directory.id}>
+				<Paper elevation={20} className="stuff" onClick={this.selectedUpdate.bind(this, directory.id)} key={directory.id}>
 					<div>{directory.code} {directory.name}</div>
 				</Paper>
 			);

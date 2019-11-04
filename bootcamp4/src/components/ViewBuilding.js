@@ -24,12 +24,13 @@ class ViewBuilding extends React.Component {
 			var address = (buildingInfo.address === null || buildingInfo.address === undefined)? "N/A" : buildingInfo.address
 			return (
 				<div>
-					<div>{id}</div>
-					<div>{code}</div>
-					<div>{name}</div>
-					<div>{latitude}</div>
-					<div>{longitude}</div>
-					<div>{address}</div>
+					<h3 style={{textAlign: "center"}}>Building Information</h3>
+					<div>ID: {id}</div>
+					<div>Building code: {code}</div>
+					<div>Name: {name}</div>
+					<div>Latitude: {latitude}</div>
+					<div>Longitude{longitude}</div>
+					<div>Address: {address}</div>
 				</div>
 			)
 		}
