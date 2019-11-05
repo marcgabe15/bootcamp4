@@ -5,6 +5,8 @@ import BuildingList from './components/BuildingList';
 import Credit from './components/Credit';
 import Paper from '@material-ui/core/Paper'
 import Button from '@material-ui/core/Button'
+import AddBuilding from './components/AddBuilding'
+import RemoveBuilding from './components/RemoveBuilding'
 import SimpleDialog from './components/SimpleDialog'
 class App extends React.Component {
   constructor(props) {
@@ -99,11 +101,11 @@ class App extends React.Component {
 
   render() {
     
-    var datalist = this.state.actualdata.map(directory => {
-      return (
-        <option value={directory.id}>{directory.code}</option>
-      );
-    })
+    // var datalist = this.state.actualdata.map(directory => {
+    //   return (
+    //     <option value={directory.id}>{directory.code}</option>
+    //   );
+    // })
 
     return (
       <div className="bg">
@@ -131,7 +133,13 @@ class App extends React.Component {
             </div>
             <div className="column2">
                 <Paper style={{margin: '10px', position: 'relative'}}>
-                  <form onSubmit={this.handleDelete.bind(this)}>
+                  <RemoveBuilding
+                    value={this.state.value}
+                    actualdata={this.state.actualdata}
+                    handleDelete={this.handleDelete.bind(this)}
+                    handleChangeDelete={this.handleChangeDelete.bind(this)}
+                  />
+                  {/* <form onSubmit={this.handleDelete.bind(this)}>
                     <label>
                       <h4>Delete which one?</h4>
                       <select value={this.state.value} onChange={this.handleChangeDelete.bind(this)}>
@@ -139,39 +147,21 @@ class App extends React.Component {
                       </select>
                       
                       <input type="submit" value="Submit"/>
-                      
                     </label>
-                  </form>
+                  </form> */}
                 </Paper>
                 <Paper style={{margin: '10px', position: 'relative'}}>
-                <form onSubmit={this.handleSubmit.bind(this)}>
-                  <h4>Add a Building?</h4>
-                  <label>
-                    the ID
-                    <input type="text" style={{margin: '5px', height: '2rem'}}  name="id" value={this.state.id} onChange={this.handleChange.bind(this)}></input>
-                  </label>
-                  <label>
-                    Code
-                    <input type="text" style={{margin: '5px', height: '2rem'}}  name="code" value={this.state.code} onChange={this.handleChange.bind(this)}></input>
-                  </label>
-                  <label>
-                    Name
-                    <input type="text" style={{margin: '5px', height: '2rem'}}  name="name" value={this.state.name} onChange={this.handleChange.bind(this)}></input>                    
-                  </label>
-                  <label>
-                    Latitude
-                    <input type="text" style={{margin: '5px', height: '2rem'}} name="latitude" value={this.state.latitude} onChange={this.handleChange.bind(this)}></input>
-                  </label>
-                  <label>
-                    Longitude
-                    <input type="text" style={{margin: '5px', height: '2rem'}}  name="longitude" value={this.state.longitude} onChange={this.handleChange.bind(this)}></input>
-                  </label>
-                  <label>
-                    Address
-                    <input type="text" style={{margin: '5px', height: '2rem'}}  name="address" value={this.state.address} onChange={this.handleChange.bind(this)}></input>
-                  </label>                  
-                  <input style={{textAlign: 'center'}} type="submit" value="Submit"/>
-                </form>
+                  <AddBuilding
+                    id={this.state.id}
+                    code={this.state.code}
+                    name={this.state.name}
+                    longitude={this.state.longitude}
+                    latitude={this.state.latitude}
+                    address={this.state.address}
+                    handleChange={this.handleChange.bind(this)}
+                    handleSubmit={this.handleSubmit.bind(this)}
+
+                  />
               </Paper>
               <Paper className="thepaper">
                 <ViewBuilding 
